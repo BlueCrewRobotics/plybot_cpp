@@ -25,7 +25,7 @@
 // constexpr int kRangeFinderPort = 1;
 // constexpr int kRangeFinderModule = 1;
 
-constexpr int motorLeft = 1;
-constexpr int motorRight = 2;
-constexpr int followLeft = 3;
-constexpr int followRight = 4;
+constexpr int motorLeftAddr = 1;
+constexpr int motorRightAddr = 2;
+constexpr int followLeftAddr = 3;
+constexpr int followRightAddr = 4;

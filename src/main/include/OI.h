@@ -27,9 +27,24 @@
 #define AXIS_RY 5
 
 
-class OI {
- public:
-  frc::Joystick * driverController;
-  frc::Joystick * auxController;
-  OI();
+
+class OI{
+  public:
+    OI();
+    bool getDriveButton(int port);
+    bool getAuxButton(int port);
+    int getDriveAxis(int port);
+    int getAuxAxis(int port);
+  private:
+    class controller{
+      public:
+        controller(int port);
+        bool getButton(int addr);
+        int getAxis(int addr);
+      private:
+        frc::Joystick * stick;
+     };    
+    controller * driveController = new controller(0);
+    controller * auxController = new controller (1);
 };
+

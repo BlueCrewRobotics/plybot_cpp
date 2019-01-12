@@ -10,10 +10,17 @@
 #include <frc/commands/Scheduler.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 
+
+#include "subsystems/DriveTrain.h"
+
 ExampleSubsystem Robot::m_subsystem;
 OI Robot::m_oi;
+driveTrain * drive_train;
+frc::Joystick * driveController;
 
 void Robot::RobotInit() {
+  driveController = new frc::Joystick(0);
+  drive_train = new driveTrain();
   m_chooser.SetDefaultOption("Default Auto", &m_defaultAuto);
   m_chooser.AddOption("My Auto", &m_myAuto);
   frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
@@ -27,7 +34,8 @@ void Robot::RobotInit() {
  * <p> This runs after the mode specific periodic functions, but before
  * LiveWindow and SmartDashboard integrated updating.
  */
-void Robot::RobotPeriodic() {}
+void Robot::RobotPeriodic() {
+}
 
 /**
  * This function is called once each time the robot enters Disabled mode. You
@@ -36,7 +44,9 @@ void Robot::RobotPeriodic() {}
  */
 void Robot::DisabledInit() {}
 
-void Robot::DisabledPeriodic() { frc::Scheduler::GetInstance()->Run(); }
+void Robot::DisabledPeriodic() { 
+  frc::Scheduler::GetInstance()->Run(); 
+ }
 
 /**
  * This autonomous (along with the chooser code above) shows how to select
@@ -78,10 +88,15 @@ void Robot::TeleopInit() {
   }
 }
 
-void Robot::TeleopPeriodic() { frc::Scheduler::GetInstance()->Run(); }
+void Robot::TeleopPeriodic() { 
+  frc::Scheduler::GetInstance()->Run(); 
+  drive_train->setSpeed(driveController->GetRawAxis(AXIS_R_TRIG));
+  drive_train->setRotation(driveController->GetRawAxis(AXIS_LX));
+  drive_train->drive();
+}
 
-void Robot::TestPeriodic() {}
-
+void Robot::TestPeriodic() {
+}
 #ifndef RUNNING_FRC_TESTS
 int main() { return frc::StartRobot<Robot>(); }
 #endif

@@ -9,7 +9,35 @@
 
 
 OI::OI() {
-  // Process operator interface input here.
-  OI::driverController = new frc::Joystick(0);
-  OI::auxController = new frc::Joystick(1);
+  
+}
+
+bool OI::getDriveButton(int port){
+  return OI::driveController->getButton(port);
+}
+
+bool OI::getAuxButton(int port){
+  return OI::auxController->getButton(port);
+}
+
+int OI::getDriveAxis(int port){
+  return OI::driveController->getAxis(port);
+}
+
+int OI::getAuxAxis(int port){
+  return OI::auxController->getAxis(port);
+}
+
+
+
+OI::controller::controller(int port){
+  this->stick = new frc::Joystick(port);
+}
+
+bool OI::controller::getButton(int port){
+  return this->stick->GetRawButton(port);
+}
+
+int OI::controller::getAxis(int port){
+  return this->stick->GetRawAxis(port);
 }
