@@ -7,14 +7,9 @@
 
 #include "OI.h"
 
-#include <frc/WPILib.h>
-using namespace frc;
 
 OI::OI() {
   // Process operator interface input here.
-  OI::driverController = new Joystick(0);
-  OI::auxController = new Joystick(1);
+  OI::driverController = new frc::Joystick(0);
+  OI::auxController = new frc::Joystick(1);
 }
-
-
-

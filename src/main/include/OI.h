@@ -6,6 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 #pragma once
+#include <frc/WPILib.h>
 
 #define BUTTON_A 0
 #define BUTTON_B 1
@@ -14,9 +15,9 @@
 #define BUTTON_L_BUMP 4
 #define BUTTON_R_BUMP 5
 #define BUTTON_SELECT 6
-#define BUTTON_SELECT 7
+#define BUTTON_START 7
 #define BUTTON_L3 8
-#define BUTTON_L3 9
+#define BUTTON_R3 9
 
 #define AXIS_LX 0
 #define AXIS_LY 1
@@ -28,7 +29,7 @@
 
 class OI {
  public:
-  Joystick * driverController;
-  Joystick * auxController;
+  frc::Joystick * driverController;
+  frc::Joystick * auxController;
   OI();
 };

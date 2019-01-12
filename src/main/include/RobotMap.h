@@ -25,7 +25,7 @@
 // constexpr int kRangeFinderPort = 1;
 // constexpr int kRangeFinderModule = 1;
 
-const WPI_TalonSRX * motorLeft = new WPI_TalonSRX(1);
-const WPI_TalonSRX * motorRight = new WPI_TalonSRX(2);
-const WPI_VictorSPX * followLeft = new WPI_VictorSPX(3);
-const WPI_VictorSPX * followRight = new WPI_VictorSPX(4);
+constexpr int motorLeft = 1;
+constexpr int motorRight = 2;
+constexpr int followLeft = 3;
+constexpr int followRight = 4;
