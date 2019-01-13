@@ -90,8 +90,14 @@ void Robot::TeleopInit() {
 
 void Robot::TeleopPeriodic() { 
   frc::Scheduler::GetInstance()->Run(); 
-  drive_train->setSpeed(driveController->GetRawAxis(AXIS_R_TRIG));
-  drive_train->setRotation(driveController->GetRawAxis(AXIS_LX));
+  // There is def a better way to do this but this works right now
+  if(driveController->GetRawAxis(AXIS_R_TRIG) > driveController->GetRawAxis(AXIS_L_TRIG)){
+    drive_train->setSpeed(driveController->GetRawAxis(AXIS_R_TRIG));
+  }else{
+    drive_train->setSpeed(driveController->GetRawAxis(AXIS_L_TRIG));
+  }
+
+  drive_train->setRotation(-1 * driveController->GetRawAxis(AXIS_LX));
   drive_train->drive();
 }
 
