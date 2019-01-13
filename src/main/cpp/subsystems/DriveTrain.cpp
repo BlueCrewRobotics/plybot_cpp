@@ -11,5 +11,8 @@ void driveTrain::setRotation(double rotation){
 }
 
 void driveTrain::drive(){
+    // first the variables newSpeed and newRotation must be calculated 
+    // then put into the ArcadeDrive function -- we did something similar 
+    // in the Kylo code. 
     drive_train->ArcadeDrive(this->xSpeed, this->zRotation, false); 
 }
