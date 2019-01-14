@@ -19,6 +19,7 @@ class driveTrain {
     private:
         double xSpeed;
         double zRotation; 
+				frc::Solenoid shiftSolenoid {9, 0};
         WPI_TalonSRX * leftDriveMotor = new WPI_TalonSRX(motorLeftAddr);
         WPI_TalonSRX * rightDriveMotor = new WPI_TalonSRX(motorRightAddr);
         WPI_VictorSPX * leftFollowMotor = new WPI_VictorSPX(followLeftAddr);
