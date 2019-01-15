@@ -7,14 +7,28 @@
 
 #pragma once
 
+#include <frc/WPILib.h>
 #include <frc/commands/Subsystem.h>
+#include <ctre/Phoenix.h>
+#include "RobotMap.h"
 
-class ExampleSubsystem : public frc::Subsystem {
+class SubDriveTrain : public frc::Subsystem {
  public:
-  ExampleSubsystem();
+  
+  SubDriveTrain();
   void InitDefaultCommand() override;
+  void Configure();
+  void Drive(double speed, double rotation);
+  
 
  private:
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities
+  
+  WPI_TalonSRX* leftDriveMotor = new WPI_TalonSRX(MOTOR_LEFT_MASTER);
+  WPI_TalonSRX* rightDriveMotor = new WPI_TalonSRX(MOTOR_RIGHT_MASTER);
+  WPI_VictorSPX* leftFollowMotor = new WPI_VictorSPX(MOTOR_LEFT_FOLLOWER);
+  WPI_VictorSPX* rightFollowMotor = new WPI_VictorSPX(MOTOR_RIGHT_FOLLOWER);
+
+  frc::DifferentialDrive * driveTrain = new frc::DifferentialDrive(*leftDriveMotor,*rightDriveMotor);
 };

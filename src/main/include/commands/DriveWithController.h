@@ -5,19 +5,21 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+#pragma once
+
+#include "Robot.h"
+
 #include "OI.h"
+#include "subsystems/SubDriveTrain.h"
 
+#include <frc/commands/Command.h>
 
-OI::OI() {
-  // Process operator interface input here.
-
-
-  //double GetDriveSpeed() {
-  //  return driverController->get;
-
-  //}
-  //double GetDriverotation() {
-    //return driverController
-  //}
-
-}
+class DriveWithController : public frc::Command {
+ public:
+  DriveWithController();
+  void Initialize() override;
+  void Execute() override;
+  bool IsFinished() override;
+  void End() override;
+  void Interrupted() override;
+};

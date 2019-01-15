@@ -12,16 +12,18 @@
 #include <frc/smartdashboard/SendableChooser.h>
 
 #include <ctre/Phoenix.h>
+
 #include "OI.h"
-#include "RobotMap.h"
 #include "commands/ExampleCommand.h"
 #include "commands/MyAutoCommand.h"
 #include "subsystems/ExampleSubsystem.h"
+#include "subsystems/SubDriveTrain.h"
 
 class Robot : public frc::TimedRobot {
  public:
   static ExampleSubsystem m_subsystem;
   static OI m_oi;
+  static SubDriveTrain m_subDriveTrain;
 
   void RobotInit() override;
   void RobotPeriodic() override;

@@ -6,7 +6,6 @@
 /*----------------------------------------------------------------------------*/
 
 #pragma once
-#include <ctre/Phoenix.h>
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -25,7 +24,43 @@
 // constexpr int kRangeFinderPort = 1;
 // constexpr int kRangeFinderModule = 1;
 
-constexpr int motorLeftAddr = 1;
-constexpr int motorRightAddr = 2;
-constexpr int followLeftAddr = 3;
-constexpr int followRightAddr = 4;
+/*
+    Game controller addressing.
+    Access in code by including RobotMap.h and using DRIVER_CONTROLLER
+*/
+
+constexpr int DRIVER_CONTROLLER = 0;
+constexpr int AUX_CONTROLLER = 1;
+
+/* 
+    Game controller button and joystick addressing.
+    Access in code by including RobotMap.h and using BUTTON_A
+*/
+constexpr int BUTTON_A = 0;
+constexpr int BUTTON_B = 1;
+constexpr int BUTTON_X = 2;
+constexpr int BUTTON_Y = 3;
+constexpr int BUTTON_L_BUMP = 4;
+constexpr int BUTTON_R_BUMP = 5;
+constexpr int BUTTON_SELECT = 6;
+constexpr int BUTTON_START = 7;
+constexpr int BUTTON_L3 = 8;
+constexpr int BUTTON_R3 = 9;
+
+constexpr int AXIS_LX = 0;          // Steer left/right
+constexpr int AXIS_LY = 1;
+constexpr int AXIS_L_TRIG = 2;      // Forward driving
+constexpr int AXIS_R_TRIG = 3;      // Reverse driving
+constexpr int AXIS_RX = 4;
+constexpr int AXIS_RY = 5;
+
+
+/* 
+    Motor Drive Talon and Victor addressing. 
+    Access in code by including RobotMap.h and using MOTOR_LEFT_MASTER 
+*/
+
+constexpr int MOTOR_LEFT_MASTER = 1;
+constexpr int MOTOR_RIGHT_MASTER = 2;
+constexpr int MOTOR_LEFT_FOLLOWER = 3;
+constexpr int MOTOR_RIGHT_FOLLOWER =4;

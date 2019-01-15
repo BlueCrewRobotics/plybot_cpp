@@ -6,45 +6,18 @@
 /*----------------------------------------------------------------------------*/
 
 #pragma once
+
 #include <frc/WPILib.h>
+#include "RobotMap.h"
 
-#define BUTTON_A 0
-#define BUTTON_B 1
-#define BUTTON_X 2
-#define BUTTON_Y 3
-#define BUTTON_L_BUMP 4
-#define BUTTON_R_BUMP 5
-#define BUTTON_SELECT 6
-#define BUTTON_START 7
-#define BUTTON_L3 8
-#define BUTTON_R3 9
+class OI {
+ public:
+  OI();
+   
+  frc::Joystick* driverController = new frc::Joystick(DRIVER_CONTROLLER);
+  frc::Joystick* auxController = new frc::Joystick(AUX_CONTROLLER);
 
-#define AXIS_LX 0
-#define AXIS_LY 1
-#define AXIS_L_TRIG 2
-#define AXIS_R_TRIG 3
-#define AXIS_RX 4
-#define AXIS_RY 5
+  
+  frc::JoystickButton* driverController_button_a = new frc::JoystickButton(driverController, BUTTON_A);
 
-
-
-class OI{
-  public:
-    OI();
-    bool getDriveButton(int port);
-    bool getAuxButton(int port);
-    int getDriveAxis(int port);
-    int getAuxAxis(int port);
-  private:
-    class controller{
-      public:
-        controller(int port);
-        bool getButton(int addr);
-        int getAxis(int addr);
-      private:
-        frc::Joystick * stick;
-     };    
-    controller * driveController = new controller(0);
-    controller * auxController = new controller (1);
 };
-
